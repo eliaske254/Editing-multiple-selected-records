@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+<h3>
+  Active:
+  <%= @users.active.count %>
+</h3>
+<h3>
+  Disabled:
+  <%= @users.disabled.count %>
+</h3>
+
+<%= form_with url: bulk_update_users_path, method: :patch, id: :bulk_actions_form do |form| %>
+  <%= form.submit 'active' %>
+  <%= form.submit 'disabled' %>
+<% end %>
+
+<%= render partial: "user", collection: @users %>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_path %>
+

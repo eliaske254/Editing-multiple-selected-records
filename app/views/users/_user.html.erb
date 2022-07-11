@@ -1,0 +1,13 @@
+<div id="<%= dom_id user %>" style="background-color: #CCCCCC; max-width: 50%">
+  <%= check_box_tag "user_ids[]", user.id, nil, { multiple: true, form: :bulk_actions_form } %>
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= user.status %>
+  </p>
+
+</div>
